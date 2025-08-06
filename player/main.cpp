@@ -33,6 +33,7 @@ void signal_handler(int signum)
     if (signum == SIGINT || signum == SIGTERM)
     {
         gExitSignal = true;
+        frameQueue.stop_queue();
     }
 }
 

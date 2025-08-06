@@ -119,9 +119,9 @@ void display_to_screen()
 //                av_frame_ref(pAVFrameHold, pAVFrame);
                 pAVFrameHold = av_frame_clone(pAVFrame);
             }
-        }
 
-        av_frame_free(&pAVFrame);
+            av_frame_free(&pAVFrame);
+        }
     }
 
     SDL_Quit();
