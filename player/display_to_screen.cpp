@@ -41,8 +41,8 @@ void display_to_screen()
     SDL_Texture *pSDLTexture = SDL_CreateTexture(pSDLRenderer, SDL_PIXELFORMAT_IYUV, SDL_TEXTUREACCESS_STREAMING, 1920,
                                                  1080);
 
-    AVFrame *pAVFrame;
-    AVFrame *pAVFrameHold;
+    AVFrame *pAVFrame = NULL;
+    AVFrame *pAVFrameHold = NULL;
     size_t queueSize;
 
     while (true)
