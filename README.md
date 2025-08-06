@@ -137,13 +137,13 @@ The command above generates a 3840x1080 video testing source (two 1920x1080s). T
 This is the last step, using the following command.
 
 ```shell
-./cmake-build-debug/player/player 'srt://<SRT IP>:10080?streamid=#!::r=live/test1,m=publish'
+./cmake-build-debug/player/player 'srt://<SRT IP>:10080?streamid=#!::r=live/test1,m=request'
 ```
 
 or
 
 ```shell
-./cmake-build-debug/player/player 'srt://<SRT IP>:10080?streamid=#!::r=live/test2,m=publish'
+./cmake-build-debug/player/player 'srt://<SRT IP>:10080?streamid=#!::r=live/test2,m=request'
 ```
  And you can see the outputs on the screen. It's not full-screened, for an easier debugging :(.
  
