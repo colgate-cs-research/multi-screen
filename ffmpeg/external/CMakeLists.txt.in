@@ -144,6 +144,7 @@ ExternalProject_Add(
 ExternalProject_Add(
         SVT-AV1
         GIT_REPOSITORY https://gitlab.com/AOMediaCodec/SVT-AV1.git
+        GIT_TAG tags/v2.3.0
         SOURCE_DIR ${CMAKE_SOURCE_DIR}/SVT-AV1
         INSTALL_DIR ${INSTALL_PREFIX}
         CONFIGURE_COMMAND
