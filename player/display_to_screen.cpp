@@ -78,19 +78,24 @@ void display_to_screen()
                     ts = strtoll(reinterpret_cast<const char *>(pAVFrame->side_data[0]->data + 16 + 11), nullptr, 10);
                     int64_t currentTs = av_gettime();
                     spdlog::debug("TS: {}", currentTs - ts);
-                    if (currentTs - ts > OFFSET_TOLERANCE_US)
+                    if (currentTs - ts > OFFSET_TOLERANCE_US) {
+                        av_frame_free(&pAVFrame);
                         continue;
+                    }
 
                     if (currentTs - ts < 0)
                     {
-                        if (queueSize > 0)
+                        if (queueSize > 0) {
+                            av_frame_free(&pAVFrame);
                             continue;
+                        }
                         spdlog::debug("future frame, sleep for {} us", ts - currentTs);
                         std::this_thread::sleep_for(std::chrono::microseconds{ts - currentTs});
                     } else if (currentTs - ts < OFFSET_TOLERANCE_US)
                     { ;
                     } else
                     {
+                        av_frame_free(&pAVFrame);
                         continue;
                     }
 //                    spdlog::info("TELEMETRY: TS {} PTS {} @ {} / {}", ts, pAVFrame->pts, pAVFrame->time_base.num,
