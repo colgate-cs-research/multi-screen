@@ -32,16 +32,11 @@ void display_to_screen()
 
     // TODO: should wait for size
     // TODO: resize, key input
-    //SDL_Window *pSDLWindow = SDL_CreateWindow("Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1920 / 2,
-    SDL_Window *pSDLWindow = SDL_CreateWindow("Demo", 0, 0, 2160, 1920,
-                                              SDL_WINDOW_BORDERLESS | SDL_WINDOW_OPENGL);
-
-//    SDL_SetWindowFullscreen(pSDLWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
+    SDL_Window *pSDLWindow = SDL_CreateWindow("Demo", 0, 0, 1080, 1920, /*SDL_WINDOW_BORDERLESS |*/ SDL_WINDOW_OPENGL);
+    SDL_SetWindowFullscreen(pSDLWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
 
     SDL_Renderer *pSDLRenderer = SDL_CreateRenderer(pSDLWindow, -1, 0);
-//    SDL_Texture *pSDLTexture = SDL_CreateTexture(pSDLRenderer, SDL_PIXELFORMAT_IYUV, SDL_TEXTUREACCESS_STREAMING, 1920,
-    SDL_Texture *pSDLTexture = SDL_CreateTexture(pSDLRenderer, SDL_PIXELFORMAT_IYUV, SDL_TEXTUREACCESS_STREAMING, 2160,
-                                                 1920);
+    SDL_Texture *pSDLTexture = SDL_CreateTexture(pSDLRenderer, SDL_PIXELFORMAT_IYUV, SDL_TEXTUREACCESS_STREAMING, 1080, 1920);
 
     AVFrame *pAVFrame = NULL;
     AVFrame *pAVFrameHold = NULL;
